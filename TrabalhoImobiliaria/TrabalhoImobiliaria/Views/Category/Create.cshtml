@@ -1,53 +1,34 @@
-﻿@model Modelo.Category;
+﻿@model Modelo.Category
 
-<div class="text-center">
-    <h1>Cadastro de categorias</h1>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-white">
+                    <h2 class="mb-0">Cadastro de Categoria</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Category" asp-action="Create" id="formCategory" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Id" class="form-label"></label>
+                            <input asp-for="Id" class="form-control" readonly />
+                            <span asp-validation-for="Id" class="text-danger"></span>
+                        </div>
 
-    <div class="container">
-        <form id="formCustomer" method="post"
-              asp-action="Create"
-              asp-controller="Category">
+                        <div class="mb-4">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
 
-            <table class="table">
-                <colgroup>
-                    <col style="width: 10%;" />   <!-- Id -->
-                    <col style="width: 60%;" />   <!-- Nome -->
-                    <col style="width: 30%;" />   <!-- Ações -->
-                </colgroup>
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <input type="text"
-                                   class="form-control"
-                                   id="Id"
-                                   name="Id"
-                                   value="@Model.Id"
-                                   readonly />
-                        </td>
-                        <td>
-                            <input type="text"
-                                   class="form-control"
-                                   id="Name"
-                                   name="Name"
-                                   value="@Model.Name" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="mt-3">
-                <button id="btnCategory"
-                        type="submit"
-                        class="btn btn-primary">
-                    Cadastrar
-                </button>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Cadastrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
